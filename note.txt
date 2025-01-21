@@ -1,1 +1,3 @@
 run seed : npm run seed:all
+run migration : npx migrate-mongo up
+rollback migration : npx migrate-mongo down
