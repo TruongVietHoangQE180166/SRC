@@ -1,0 +1,9 @@
+{
+  "lastRun": "1737537324825-initmigration.js",
+  "migrations": [
+    {
+      "title": "1737537324825-initmigration.js",
+      "timestamp": 1737537484773
+    }
+  ]
+}

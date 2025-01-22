@@ -18,9 +18,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "seed:products": "ts-node src/seed/product.seed.ts",
-    "seed:accounts": "ts-node src/seed/account.seed.ts",
-    "seed:orders": "ts-node src/seed/order.seed.ts",
+    "seed:products": "ts-node src/database/seed/product.seed.ts",
+    "seed:accounts": "ts-node src/database/seed/account.seed.ts",
+    "seed:orders": "ts-node src/database/seed/order.seed.ts",
     "seed:all": "npm run seed:products && npm run seed:accounts && npm run seed:orders"
   },
   "dependencies": {
@@ -50,7 +50,7 @@
     "@types/express": "^5.0.0",
     "@types/jest": "^29.5.2",
     "@types/jsonwebtoken": "^9.0.7",
-    "@types/node": "^20.3.1",
+    "@types/node": "^20.17.14",
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
@@ -64,9 +64,9 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.3",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.1.3"
+    "typescript": "^5.7.3"
   },
   "jest": {
     "moduleFileExtensions": [

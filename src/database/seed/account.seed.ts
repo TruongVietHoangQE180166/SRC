@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { UserAccountSchema } from '../auth/schemas/account.schema';
+import { UserAccountSchema } from '../../modules/auth/schemas/account.schema';
 import * as bcrypt from 'bcrypt';
 import * as dotenv from 'dotenv';
 

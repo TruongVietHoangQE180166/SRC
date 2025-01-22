@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { ProductSchema } from '../product/schemas/product.schema';
+import { ProductSchema } from '../../modules/product/schemas/product.schema';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
