@@ -12,8 +12,8 @@ import {
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { AuthGuard } from 'src/guard/auth.guard';
-import { AdminGuard } from 'src/guard/admin.guard';
+import { AuthGuard } from 'src/common/guard/auth.guard';
+import { AdminGuard } from 'src/common/guard/admin.guard';
 
 @Controller('products')
 export class ProductController {

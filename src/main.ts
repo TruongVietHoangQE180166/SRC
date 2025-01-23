@@ -1,18 +1,16 @@
-import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { HttpExceptionFilter } from './Filter/http-exception.filter';
+import { HttpExceptionFilter } from './common/Filter/http-exception.filter';
+import { CustomValidationPipe } from './common/pipes/validation.pipe';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true, 
-      forbidNonWhitelisted: true,
-      transform: true, 
-    }),
-  );
+
+  
+  app.useGlobalPipes(new CustomValidationPipe());
 
   await app.listen(3000);
 }
