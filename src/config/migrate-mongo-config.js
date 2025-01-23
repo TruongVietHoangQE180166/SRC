@@ -10,7 +10,7 @@ const config = {
       useUnifiedTopology: true,
     },
   },
-  migrationsDir: path.join(__dirname, 'src/database/migrations'), // Đường dẫn tuyệt đối
+  migrationsDir: path.join(__dirname, 'src/database/migrations'), 
   changelogCollectionName: 'changelog',
   migrationFileExtension: '.js',
   useFileHash: false,

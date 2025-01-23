@@ -3,9 +3,9 @@
 module.exports = {
   async up(db, client) {
     try {
-      // Lấy collection từ db
+
       const collection = db.collection('useraccounts');
-      // Update tất cả documents để thêm trường isVerifier
+
       const result = await collection.updateMany(
         {},
         {
@@ -23,9 +23,9 @@ module.exports = {
 
   async down(db, client) {
     try {
-      // Lấy collection từ db
+
       const collection = db.collection('useraccounts');
-      // Remove trường isVerifier từ tất cả documents
+
       const result = await collection.updateMany(
         {},
         {

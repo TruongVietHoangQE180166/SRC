@@ -3,7 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { UserAccount, UserAccountSchema, DeviceToken, DeviceTokenSchema } from './schemas/account.schema';
-
+import { UserAccountRepository, DeviceTokenRepository } from './auth.repositories';
 @Module({
   imports: [
     MongooseModule.forFeature([
@@ -12,10 +12,12 @@ import { UserAccount, UserAccountSchema, DeviceToken, DeviceTokenSchema } from '
     ]),
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, UserAccountRepository, DeviceTokenRepository],
   exports: [
     AuthService,
-    MongooseModule, 
+    MongooseModule,
+    UserAccountRepository, 
+    DeviceTokenRepository
   ],
 })
 export class AuthModule {}

@@ -2,10 +2,10 @@ import { Controller, Post, Body, BadRequestException, Headers, UseGuards, Get, P
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { LoginDto } from './dto/login.dto';
-import { AdminGuard } from 'src/common/guard/admin.guard';
-import { AuthGuard } from 'src/common/guard/auth.guard';
+import { AdminGuard } from 'src/common/guards/admin.guard';
+import { AuthGuard } from 'src/common/guards/auth.guard';
 import { UpdateAuthDto } from './dto/update-auth.dto';
-import { RefreshTokenGuard } from 'src/common/guard/refreshToken.guard';
+import { RefreshTokenGuard } from 'src/common/guards/refreshToken.guard';
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
