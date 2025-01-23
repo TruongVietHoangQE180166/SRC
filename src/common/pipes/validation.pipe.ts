@@ -6,7 +6,7 @@ export class CustomValidationPipe extends ValidationPipe {
       whitelist: true,
       forbidNonWhitelisted: true,
       transform: true,
-      ...options, // Cho phép override các tùy chọn
+      ...options, 
     });
   }
 }

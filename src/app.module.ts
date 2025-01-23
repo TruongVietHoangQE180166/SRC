@@ -3,21 +3,16 @@ import { Module } from '@nestjs/common';
 import { AuthModule } from './modules/auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { Databaseconfig } from './config/database.config';
-import { ProductModule } from './modules/product/product.module';
-import { OrderModule } from './modules/order/order.module';
+import { QuizModule } from './modules/quiz/quiz.module';
 
 @Module({
   imports: [
-
     ConfigModule.forRoot({
       isGlobal: true, 
     }),
     Databaseconfig, 
-    
     AuthModule, 
-    ProductModule, 
-    OrderModule, 
-   
+    QuizModule, 
   ],
   controllers: [],
   providers: [],

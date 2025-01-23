@@ -9,20 +9,21 @@ import {
   BadRequestException,
   UseGuards,
 } from '@nestjs/common';
-import { ProductService } from './product.service';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
-import { AuthGuard } from 'src/common/guard/auth.guard';
-import { AdminGuard } from 'src/common/guard/admin.guard';
+import { QuizService } from './quiz.service';
+import { CreateQuizDto } from './dto/create-quiz.dto';
+import { UpdateQuizDto } from './dto/update-quiz.dto';
+import { AuthGuard } from 'src/common/guards/auth.guard';
+import { AdminGuard } from 'src/common/guards/admin.guard';
 
-@Controller('products')
-export class ProductController {
-  constructor(private readonly productService: ProductService) {}
+@Controller('quizzes')
+export class QuizController {
+  constructor(private readonly quizService: QuizService) {}
+
   @UseGuards(AuthGuard, AdminGuard)
   @Post('create')
-  async create(@Body() createProductDto: CreateProductDto) {
+  async create(@Body() createQuizDto: CreateQuizDto) {
     try {
-      const data = await this.productService.create(createProductDto);
+      const data = await this.quizService.create(createQuizDto);
       return {
         method: 'CREATE',
         data,
@@ -38,13 +39,14 @@ export class ProductController {
     }
   }
   
+  @UseGuards(AuthGuard, AdminGuard)
   @Get('list')
   async findAll(@Query('page') page: number, @Query('limit') limit: number) {
     try {
       if (!page || !limit) {
         throw new Error('Page and limit are required');
       }
-      const result = await this.productService.findAll(+page, +limit);
+      const result = await this.quizService.findAll(+page, +limit);
       return {
         method: 'GET_ALL',
         data: result,
@@ -59,11 +61,12 @@ export class ProductController {
       });
     }
   }
-
+  
+  @UseGuards(AuthGuard, AdminGuard)
   @Get('detail/:id')
   async findOne(@Param('id') id: string) {
     try {
-      const data = await this.productService.findOne(+id);
+      const data = await this.quizService.findOne(id);
       return {
         method: 'GET_ONE',
         data,
@@ -78,14 +81,15 @@ export class ProductController {
       });
     }
   }
+
   @UseGuards(AuthGuard, AdminGuard)
   @Post('update/:id')
   async update(
     @Param('id') id: string,
-    @Body() updateProductDto: UpdateProductDto,
+    @Body() updateQuizDto: UpdateQuizDto,
   ) {
     try {
-      const data = await this.productService.update(+id, updateProductDto);
+      const data = await this.quizService.update(id, updateQuizDto);
       return {
         method: 'UPDATE',
         data,
@@ -100,14 +104,15 @@ export class ProductController {
       });
     }
   }
+
   @UseGuards(AuthGuard, AdminGuard)
   @Delete('delete/:id')
   async remove(@Param('id') id: string) {
     try {
-      await this.productService.remove(+id);
+      await this.quizService.remove(id);
       return {
         method: 'DELETE',
-        data: { message: `Product with ID ${id} deleted successfully` },
+        data: { message: `Quiz with ID ${id} deleted successfully` },
       };
     } catch (error) {
       throw new BadRequestException({
