@@ -4,7 +4,7 @@ import { OrderService } from './order.service';
 import { OrderController } from './order.controller';
 import { Order, OrderSchema } from './schemas/order.schema';
 import { Product, ProductSchema } from '../product/schemas/product.schema';
-import { AuthModule } from 'src/auth/auth.module';
+import { AuthModule } from 'src/modules/auth/auth.module';
 @Module({
   imports: [
     MongooseModule.forFeature([

@@ -1,0 +1,2 @@
+Description: A method in RxJS (commonly takeUntil) that unsubscribes from an Observable when a specific condition or event occurs.
+Usage: To manage the lifecycle of streams, prevent memory leaks, or stop processing when no longer needed.

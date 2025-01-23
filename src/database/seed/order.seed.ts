@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { OrderSchema } from '../order/schemas/order.schema';
+import { OrderSchema } from '../../modules/order/schemas/order.schema';
 import * as dotenv from 'dotenv';
 
 dotenv.config();

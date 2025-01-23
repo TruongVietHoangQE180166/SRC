@@ -1,0 +1,2 @@
+Description: A tool in NestJS that intercepts requests/responses to execute logic before or after the request reaches the handler.
+Usage: For logging, transforming data, caching, or implementing global logic.

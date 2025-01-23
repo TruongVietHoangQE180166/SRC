@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './modules/auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { Databaseconfig } from './config/database.config';
-import { ProductModule } from './product/product.module';
-import { OrderModule } from './order/order.module';
+import { ProductModule } from './modules/product/product.module';
+import { OrderModule } from './modules/order/order.module';
+
 @Module({
   imports: [
 
@@ -15,7 +16,8 @@ import { OrderModule } from './order/order.module';
     
     AuthModule, 
     ProductModule, 
-    OrderModule
+    OrderModule, 
+   
   ],
   controllers: [],
   providers: [],
